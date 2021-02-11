@@ -2,7 +2,7 @@
 
 We are trying:
 
-1.Write a program from a CSV file, loads the data into the appropriate kolekce. 
+1. Write a program from a CSV file, loads the data into the appropriate kolekce. 
 The data from this collection can be serialized to a file and then save it. 
 In other words, this file stores data and start over.
 
