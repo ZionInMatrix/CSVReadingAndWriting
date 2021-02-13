@@ -5,14 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataManager {
+    /**
+     * Vytvoril jsem stiticky Separator pro vse metody
+     * a taky ted mame cestu pro CSVFile 
+     */
     private static final String CSV_SEPARATOR = ";";
     private static final String fileName = System.getProperty("user.dir") + "/src/Tel.csv";
 
     /**
-     * Snazim Cist lines from CSVFile into List<Employee> employees = new ArrayList<Employee>
-     *     ted jenom cte ve spravnem formatu www
+     * Snazim se cist lines from CSVFile into List<Employee> employees = new ArrayList<Employee>
+     *     ted jenom cte ve spravnem formatu "Windows-1250"
      */
-    public void readFile() {
+    public void readCSVFileInToArrayList() {
         BufferedReader in = null;
         String line = "";
         List<Employee> employees = new ArrayList<>();
@@ -36,7 +40,7 @@ public class DataManager {
         }
     }
     /**
-     * Udelal jsem metodu, ktera bude nacitat data do CSVFilu
+     * Udelal jsem metodu, ktera bude writeToCSV to co potreba....
      */
 
     public void writeToCSV(ArrayList<Employee> employees) {
