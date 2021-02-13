@@ -6,7 +6,7 @@ import java.util.List;
 
 public class DataManager {
     /**
-     * Vytvoril jsem stiticky Separator pro vse metody
+     * Vytvoril jsem staticky Separator pro vse metody
      * a taky ted mame cestu pro CSVFile 
      */
     private static final String CSV_SEPARATOR = ";";
