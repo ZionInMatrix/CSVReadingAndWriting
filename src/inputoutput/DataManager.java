@@ -9,8 +9,7 @@ public class DataManager {
     private static final String fileName = System.getProperty("user.dir") + "/src/Tel.csv";
 
     /**
-     * Snazim Cist lines from CSVFile into List<Employee> employees = new ArrayList<Employee>
-     * ted jenom cte ve spravnem formatu www
+     * Snazim se udelat metodu ktera bude nacitat Data from CSV file.
      */
     public void readDataFromCsvFile() {
         String line = "";
