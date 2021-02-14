@@ -12,29 +12,32 @@ public class DataManager {
      * Snazim Cist lines from CSVFile into List<Employee> employees = new ArrayList<Employee>
      * ted jenom cte ve spravnem formatu www
      */
-    public void readFile() throws IOException {
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "Windows-1250"));
-        String l = null;
-        try {
-            l = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        assert l != null;
-        String[] lines = l.split(CSV_SEPARATOR);
+    public void readDataFromCsvFile() {
+        String line = "";
+        BufferedReader br;
         List<Employee> employees = new ArrayList<>();
-
-        while (br.readLine() != null) {
-            for (String pr : lines) {
-                String[] fields = pr.split(";");
-                Employee employee = new Employee();
-                employee.setJmeno(fields[0]);
-                employees.add(employee);
+            try {
+                br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "Windows-1250"));
+                while ((line = br.readLine()) != null) {
+                    String[] values = line.split(";");
+                    Employee employee = new Employee();
+                    employee.setJmeno(values[0]);
+                    employee.setFunkce(values[1]);
+                    employee.setPopisCinnosti(values[2]);
+                    employee.setCisloDveri(values[3]);
+                    employee.setTelefon(values[4]);
+                    employee.setMobil(values[5]);
+                    employee.setEmail(values[6]);
+                    employee.setOddeleni(values[7]);
+                    employee.setZkratkaOdboru(values[8]);
+                    employee.setNazevOdboru(values[9]);
+                    employees.add(employee);
+                }
+                System.out.println(employees);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            System.out.println(employees);
         }
-    }
 
     /**
      * Udelal jsem metodu, ktera bude nacitat data do CSVFilu
