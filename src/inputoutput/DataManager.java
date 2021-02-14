@@ -5,42 +5,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataManager {
-    /**
-     * Vytvoril jsem staticky Separator pro vse metody
-     * a taky ted mame cestu pro CSVFile 
-     */
     private static final String CSV_SEPARATOR = ";";
     private static final String fileName = System.getProperty("user.dir") + "/src/Tel.csv";
 
     /**
-     * Snazim se cist lines from CSVFile into List<Employee> employees = new ArrayList<Employee>
-     *     ted jenom cte ve spravnem formatu "Windows-1250"
+     * Snazim Cist lines from CSVFile into List<Employee> employees = new ArrayList<Employee>
+     * ted jenom cte ve spravnem formatu www
      */
-    public void readCSVFileInToArrayList() {
-        BufferedReader in = null;
-        String line = "";
-        List<Employee> employees = new ArrayList<>();
+    public void readFile() throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "Windows-1250"));
+        String l = null;
         try {
-            in = new BufferedReader(
-                    new InputStreamReader(new FileInputStream(fileName), "Windows-1250"));
-        } catch (UnsupportedEncodingException | FileNotFoundException e) {
+            l = br.readLine();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        while (true) {
-            try {
-                String lines[] = line.split(CSV_SEPARATOR);
+        assert l != null;
+        String[] lines = l.split(CSV_SEPARATOR);
+        List<Employee> employees = new ArrayList<>();
 
-                for(Employee employee : employees) {
-                    System.out.println(employee);
-                }
-                if ((line = in.readLine()) == null) break;
-            } catch (IOException e) {
-                e.printStackTrace();
+        while (br.readLine() != null) {
+            for (String pr : lines) {
+                String[] fields = pr.split(";");
+                Employee employee = new Employee();
+                employee.setJmeno(fields[0]);
+                employees.add(employee);
             }
+            System.out.println(employees);
         }
     }
+
     /**
-     * Udelal jsem metodu, ktera bude writeToCSV to co potreba....
+     * Udelal jsem metodu, ktera bude nacitat data do CSVFilu
      */
 
     public void writeToCSV(ArrayList<Employee> employees) {
@@ -82,3 +79,4 @@ public class DataManager {
         }
     }
 }
+

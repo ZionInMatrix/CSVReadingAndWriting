@@ -18,6 +18,8 @@ public class Employee implements Serializable {
 
     List<Employee> employeeList = new ArrayList<>();
 
+    public Employee() {
+    }
 
     public Employee(List<Employee> employeeList) {
         this.employeeList = employeeList;
@@ -187,5 +189,22 @@ public class Employee implements Serializable {
     public void setNazevOdboru(String nazevOdboru) {
         this.nazevOdboru = nazevOdboru;
     }
+
+    @Override
+    public String toString() {
+        return "Employee " +
+                "jmeno =" + jmeno +
+                " funkce = " + funkce +
+                " popisCinnosti = " + popisCinnosti +
+                " cisloDveri = " + cisloDveri +
+                " telefon = " + telefon +
+                " mobil = " + mobil +
+                " email = " + email +
+                " oddeleni = " + oddeleni +
+                " zkratkaOdboru = " + zkratkaOdboru + '\'' +
+                " nazevOdboru = " + nazevOdboru  +
+                '\n';
+    }
 }
+
 
