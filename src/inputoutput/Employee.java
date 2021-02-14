@@ -9,8 +9,8 @@ public class Employee implements Serializable {
     private String funkce;
     private String popisCinnosti;
     private String cisloDveri;
-    private int telefon;
-    private int mobil;
+    private String telefon;
+    private String mobil;
     private String email;
     private String oddeleni;
     private String zkratkaOdboru;
@@ -47,7 +47,7 @@ public class Employee implements Serializable {
         this.cisloDveri = cisloDveri;
     }
 
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, int telefon) {
+    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon) {
         this.jmeno = jmeno;
         this.funkce = funkce;
         this.popisCinnosti = popisCinnosti;
@@ -55,7 +55,7 @@ public class Employee implements Serializable {
         this.telefon = telefon;
     }
 
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, int telefon, int mobil) {
+    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String mobil) {
         this.jmeno = jmeno;
         this.funkce = funkce;
         this.popisCinnosti = popisCinnosti;
@@ -64,7 +64,7 @@ public class Employee implements Serializable {
         this.mobil = mobil;
     }
 
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, int telefon, int mobil, String email) {
+    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String mobil, String email) {
         this.jmeno = jmeno;
         this.funkce = funkce;
         this.popisCinnosti = popisCinnosti;
@@ -74,7 +74,7 @@ public class Employee implements Serializable {
         this.email = email;
     }
 
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, int telefon, int mobil, String email, String oddeleni) {
+    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String mobil, String email, String oddeleni) {
         this.jmeno = jmeno;
         this.funkce = funkce;
         this.popisCinnosti = popisCinnosti;
@@ -85,7 +85,7 @@ public class Employee implements Serializable {
         this.oddeleni = oddeleni;
     }
 
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, int telefon, int mobil, String email, String oddeleni, String zkratkaOdboru) {
+    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String mobil, String email, String oddeleni, String zkratkaOdboru) {
         this.jmeno = jmeno;
         this.funkce = funkce;
         this.popisCinnosti = popisCinnosti;
@@ -97,7 +97,7 @@ public class Employee implements Serializable {
         this.zkratkaOdboru = zkratkaOdboru;
     }
 
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, int telefon, int mobil, String email, String oddeleni, String zkratkaOdboru, String nazevOdboru) {
+    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String  mobil, String email, String oddeleni, String zkratkaOdboru, String nazevOdboru) {
         this.jmeno = jmeno;
         this.funkce = funkce;
         this.popisCinnosti = popisCinnosti;
@@ -142,19 +142,19 @@ public class Employee implements Serializable {
         this.cisloDveri = cisloDveri;
     }
 
-    public int getTelefon() {
+    public String getTelefon() {
         return telefon;
     }
 
-    public void setTelefon(int telefon) {
+    public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
 
-    public int getMobil() {
+    public String getMobil() {
         return mobil;
     }
 
-    public void setMobil(int mobil) {
+    public void setMobil(String mobil) {
         this.mobil = mobil;
     }
 
@@ -192,19 +192,21 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "Employee " +
-                "jmeno =" + jmeno +
-                " funkce = " + funkce +
-                " popisCinnosti = " + popisCinnosti +
-                " cisloDveri = " + cisloDveri +
-                " telefon = " + telefon +
-                " mobil = " + mobil +
-                " email = " + email +
-                " oddeleni = " + oddeleni +
-                " zkratkaOdboru = " + zkratkaOdboru + '\'' +
-                " nazevOdboru = " + nazevOdboru  +
-                '\n';
+        return  jmeno + " " +
+                funkce + " " +
+                popisCinnosti + " " +
+                cisloDveri + " " +
+                telefon + " " +
+                mobil + " " +
+                email + " " +
+                oddeleni + " " +
+                zkratkaOdboru + " " +
+                nazevOdboru  + " " +
+                "\n";
     }
+}
+
+
 }
 
 
