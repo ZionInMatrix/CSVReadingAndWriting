@@ -1,5 +1,9 @@
 package inputoutput;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataManager {
     private static final String CSV_SEPARATOR = ";";
     private static final String fileName = System.getProperty("user.dir") + "/src/Tel.csv";
@@ -28,7 +32,7 @@ public class DataManager {
                 employee.setNazevOdboru(values[9]);
                 employees.add(employee);
             }
-            System.out.println(employees);
+            // System.out.println(employees);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,6 +46,11 @@ public class DataManager {
     public void writeToCSV(List<Employee> employees) {
         try {
             BufferedWriter bw = null;
+
+            System.out.println();   System.out.println();
+            System.out.println("Zapisuji do souboru " + fileName);
+            System.out.println();   System.out.println();
+
             try {
                 bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName, true), "Windows-1250"));
             } catch (UnsupportedEncodingException | FileNotFoundException e) {
