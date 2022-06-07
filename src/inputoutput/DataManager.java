@@ -17,6 +17,7 @@ public class DataManager {
         try {
             reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "Windows-1250"));
             while ((line = reader.readLine()) != null) {
+
                 String[] values = line.split(CSV_SEPARATOR);
                 Employee employee = new Employee();
                 employee.setJmeno(values[0]);
