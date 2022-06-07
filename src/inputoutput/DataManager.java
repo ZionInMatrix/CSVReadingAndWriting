@@ -14,6 +14,7 @@ public class DataManager {
         String line;
         BufferedReader reader;
         List<Employee> employees = new ArrayList<>();
+
         try {
             reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "Windows-1250"));
             while ((line = reader.readLine()) != null) {
@@ -36,6 +37,7 @@ public class DataManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return employees;
     }
 
@@ -76,11 +78,14 @@ public class DataManager {
                         employee.getZkratkaOdboru() +
                         CSV_SEPARATOR +
                         employee.getNazevOdboru();
+
                 bw.write(data);
                 bw.newLine();
             }
+
             bw.flush();
             bw.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
