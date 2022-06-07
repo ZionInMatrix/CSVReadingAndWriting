@@ -1,10 +1,9 @@
 package inputoutput;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Employee implements Serializable {
+
     private String jmeno;
     private String funkce;
     private String popisCinnosti;
@@ -16,88 +15,10 @@ public class Employee implements Serializable {
     private String zkratkaOdboru;
     private String nazevOdboru;
 
-    List<Employee> employeeList = new ArrayList<>();
-
     public Employee() {
     }
 
-    public Employee(List<Employee> employeeList) {
-        this.employeeList = employeeList;
-    }
-
-    public Employee(String jmeno) {
-        this.jmeno = jmeno;
-    }
-
-    public Employee(String jmeno, String funkce) {
-        this.jmeno = jmeno;
-        this.funkce = funkce;
-    }
-
-    public Employee(String jmeno, String funkce, String popisCinnosti) {
-        this.jmeno = jmeno;
-        this.funkce = funkce;
-        this.popisCinnosti = popisCinnosti;
-    }
-
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri) {
-        this.jmeno = jmeno;
-        this.funkce = funkce;
-        this.popisCinnosti = popisCinnosti;
-        this.cisloDveri = cisloDveri;
-    }
-
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon) {
-        this.jmeno = jmeno;
-        this.funkce = funkce;
-        this.popisCinnosti = popisCinnosti;
-        this.cisloDveri = cisloDveri;
-        this.telefon = telefon;
-    }
-
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String mobil) {
-        this.jmeno = jmeno;
-        this.funkce = funkce;
-        this.popisCinnosti = popisCinnosti;
-        this.cisloDveri = cisloDveri;
-        this.telefon = telefon;
-        this.mobil = mobil;
-    }
-
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String mobil, String email) {
-        this.jmeno = jmeno;
-        this.funkce = funkce;
-        this.popisCinnosti = popisCinnosti;
-        this.cisloDveri = cisloDveri;
-        this.telefon = telefon;
-        this.mobil = mobil;
-        this.email = email;
-    }
-
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String mobil, String email, String oddeleni) {
-        this.jmeno = jmeno;
-        this.funkce = funkce;
-        this.popisCinnosti = popisCinnosti;
-        this.cisloDveri = cisloDveri;
-        this.telefon = telefon;
-        this.mobil = mobil;
-        this.email = email;
-        this.oddeleni = oddeleni;
-    }
-
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String mobil, String email, String oddeleni, String zkratkaOdboru) {
-        this.jmeno = jmeno;
-        this.funkce = funkce;
-        this.popisCinnosti = popisCinnosti;
-        this.cisloDveri = cisloDveri;
-        this.telefon = telefon;
-        this.mobil = mobil;
-        this.email = email;
-        this.oddeleni = oddeleni;
-        this.zkratkaOdboru = zkratkaOdboru;
-    }
-
-    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String  mobil, String email, String oddeleni, String zkratkaOdboru, String nazevOdboru) {
+    public Employee(String jmeno, String funkce, String popisCinnosti, String cisloDveri, String telefon, String mobil, String email, String oddeleni, String zkratkaOdboru, String nazevOdboru) {
         this.jmeno = jmeno;
         this.funkce = funkce;
         this.popisCinnosti = popisCinnosti;
@@ -192,17 +113,18 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return  jmeno + " " +
-                funkce + " " +
-                popisCinnosti + " " +
-                cisloDveri + " " +
-                telefon + " " +
-                mobil + " " +
-                email + " " +
-                oddeleni + " " +
-                zkratkaOdboru + " " +
-                nazevOdboru  + " " +
-                "\n";
+        return "Employee{" +
+                "jmeno='" + jmeno + '\'' +
+                ", funkce='" + funkce + '\'' +
+                ", popisCinnosti='" + popisCinnosti + '\'' +
+                ", cisloDveri='" + cisloDveri + '\'' +
+                ", telefon='" + telefon + '\'' +
+                ", mobil='" + mobil + '\'' +
+                ", email='" + email + '\'' +
+                ", oddeleni='" + oddeleni + '\'' +
+                ", zkratkaOdboru='" + zkratkaOdboru + '\'' +
+                ", nazevOdboru='" + nazevOdboru + '\'' +
+                '}';
     }
 }
 

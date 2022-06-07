@@ -5,20 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataManager {
+
     private static final String CSV_SEPARATOR = ";";
     private static final String fileName = System.getProperty("user.dir") + "/src/Tel.csv";
 
-    /**
-     *
-     */
     public List<Employee> readDataFromCsvFile() {
-        String line = "";
-        BufferedReader br;
+
+        String line;
+        BufferedReader reader;
         List<Employee> employees = new ArrayList<>();
         try {
-            br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "Windows-1250"));
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(";");
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "Windows-1250"));
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(CSV_SEPARATOR);
                 Employee employee = new Employee();
                 employee.setJmeno(values[0]);
                 employee.setFunkce(values[1]);
@@ -32,52 +31,51 @@ public class DataManager {
                 employee.setNazevOdboru(values[9]);
                 employees.add(employee);
             }
-            // System.out.println(employees);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
         return employees;
     }
 
-    /**
-     * Udelal jsem metodu, ktera bude nacitat data do CSVFilu
-     */
-
     public void writeToCSV(List<Employee> employees) {
+
         try {
             BufferedWriter bw = null;
 
-            System.out.println();   System.out.println();
+            System.out.println();
+            System.out.println();
             System.out.println("Zapisuji do souboru " + fileName);
-            System.out.println();   System.out.println();
+            System.out.println();
+            System.out.println();
 
             try {
                 bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName, true), "Windows-1250"));
             } catch (UnsupportedEncodingException | FileNotFoundException e) {
                 e.printStackTrace();
             }
+
             for (Employee employee : employees) {
-                StringBuffer oneLine = new StringBuffer();
-                oneLine.append(employee.getJmeno());
-                oneLine.append(CSV_SEPARATOR);
-                oneLine.append(employee.getFunkce());
-                oneLine.append(CSV_SEPARATOR);
-                oneLine.append(employee.getPopisCinnosti());
-                oneLine.append(CSV_SEPARATOR);
-                oneLine.append(employee.getCisloDveri());
-                oneLine.append(CSV_SEPARATOR);
-                oneLine.append(employee.getTelefon());
-                oneLine.append(CSV_SEPARATOR);
-                oneLine.append(employee.getMobil());
-                oneLine.append(CSV_SEPARATOR);
-                oneLine.append(employee.getEmail());
-                oneLine.append(CSV_SEPARATOR);
-                oneLine.append(employee.getOddeleni());
-                oneLine.append(CSV_SEPARATOR);
-                oneLine.append(employee.getZkratkaOdboru());
-                oneLine.append(CSV_SEPARATOR);
-                oneLine.append(employee.getNazevOdboru());
-                bw.write(oneLine.toString());
+                String data = employee.getJmeno() +
+                        CSV_SEPARATOR +
+                        employee.getFunkce() +
+                        CSV_SEPARATOR +
+                        employee.getPopisCinnosti() +
+                        CSV_SEPARATOR +
+                        employee.getCisloDveri() +
+                        CSV_SEPARATOR +
+                        employee.getTelefon() +
+                        CSV_SEPARATOR +
+                        employee.getMobil() +
+                        CSV_SEPARATOR +
+                        employee.getEmail() +
+                        CSV_SEPARATOR +
+                        employee.getOddeleni() +
+                        CSV_SEPARATOR +
+                        employee.getZkratkaOdboru() +
+                        CSV_SEPARATOR +
+                        employee.getNazevOdboru();
+                bw.write(data);
                 bw.newLine();
             }
             bw.flush();
